@@ -1,11 +1,15 @@
 //DEPENDENCIES
 import express from 'express'
-// const express = require('express');
+import routes from './src/routes/admin-routes';
+
 const app = express();
 
 const PORT = 3000;
 
+routes(app);
+
 //ROUTES
+
 app.get('/', (req, res) => {
     res.send(`I'm alive!`);
 });
