@@ -9,7 +9,7 @@ const PORT = 3000;
 
 // mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongobd://localhost/portalDB', {
+mongoose.connect('mongodb://localhost/portalDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true // prevents errors when connecting to mongoDB
 });
@@ -25,17 +25,6 @@ routes(app);
 app.get('/', (req, res) => {
     res.send(`I'm alive!`);
 });
-
-
-app.get('/somedata', (req, res) => {
-    response.send('here is your information');
-});
-
-
-
-
-
-
 
 
 

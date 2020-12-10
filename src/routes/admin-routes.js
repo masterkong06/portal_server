@@ -1,3 +1,5 @@
+import { addNewPatient } from '../controllers/admin-controller';
+
 // create main routes
 
 const routes = (app) => {
@@ -11,8 +13,7 @@ const routes = (app) => {
             res.send('GET request successful!')
         }) // get all the patients
 
-        .post((req, res) =>
-            res.send('POST request successful!')); // create new patients
+        .post(addNewPatient); // create new patients
 
     app.route('/patient/:id')
         .put((req, res) =>
