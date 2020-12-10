@@ -1,4 +1,4 @@
-import { addNewPatient, getPatient } from '../controllers/admin-controller';
+import { addNewPatient, getPatient, getPatientWithID, updatePatient, deletePatient } from '../controllers/admin-controller';
 
 // create main routes
 
@@ -9,16 +9,17 @@ const routes = (app) => {
             console.log(`Request from ${req.originalUrl}`); // identifies where the request came from
             console.log(`Request type: ${req.method}`); // get the method that's used in the request
             next();
-        }, getPatient) // get all the patients
+        }, getPatient) // get all the patient records
 
-        .post(addNewPatient); // create new patients
+        // Post endpoint
+        .post(addNewPatient); // create new patient record
 
     app.route('/patient/:id')
-        .put((req, res) =>
-            res.send('PUT request successful!')) // update a single patient by id
+        .get(getPatientWithID) // show a single patient record using the database id
 
-        .delete((req, res) =>
-            res.send('DELETE request successful!')); // delete a single patient by id
+        .put(updatePatient) // update a single patient record by id
+
+        .delete(deletePatient); // delete a single patient record by id
 
 
 }

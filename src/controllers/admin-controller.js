@@ -22,3 +22,30 @@ export const getPatient = (req, res) => {
         res.json(patient);
     })
 }
+
+export const getPatientWithID = (req, res) => {
+    Patient.findById(req.params.id, (err, patient) => {
+           if (err) {
+            res.send(err);
+        }
+        res.json(patient);
+    })
+}
+
+export const updatePatient = (req, res) => {
+    Patient.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, useFindAndModify: false }, (err, patient) => {
+           if (err) {
+            res.send(err);
+        }
+        res.json(patient);
+    })
+}
+
+export const deletePatient = (req, res) => {
+    Patient.remove({ _id: req.params.id }, (err, patient) => {
+           if (err) {
+            res.send(err);
+        }
+        res.json({message: `Patient record successfully deleted.`});
+    })
+}

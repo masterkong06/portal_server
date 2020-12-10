@@ -32,5 +32,5 @@ app.get('/', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Party on port ${PORT} bitches!!! 🎉🎈🎊🥳`);
+    console.log(`Party on port ${PORT} ya'll!!! 🎉🎈🎊🥳`);
 })
