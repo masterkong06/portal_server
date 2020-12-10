@@ -13,3 +13,12 @@ export const addNewPatient = (req, res) => {
         res.json(patient);
     })
 }
+
+export const getPatient = (req, res) => {
+    Patient.find({}, (err, patient) => {
+           if (err) {
+            res.send(err);
+        }
+        res.json(patient);
+    })
+}
