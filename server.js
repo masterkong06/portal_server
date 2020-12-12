@@ -18,9 +18,12 @@ mongoose.connect('mongodb://localhost/portalDB', {
 app.use(bodyParser.urlencoded({extended: true})); // parse the request object to JSON
 app.use(bodyParser.json());
 
+//ROUTES
+
 routes(app);
 
-//ROUTES
+// static files
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.send(`I'm alive!`);
