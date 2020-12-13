@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-export const testSchema = new Schema({
+export const testsSchema = new Schema({
     test_name: {
         type: String, 
         required: 'Test name'
@@ -13,6 +13,6 @@ export const testSchema = new Schema({
     },
     test_date: {
         type: Date, 
-        required: Date.now
+        default: Date.now
     }
 });
