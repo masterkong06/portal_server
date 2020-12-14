@@ -8,6 +8,7 @@ import bodyParser from 'body-parser';
 
 const app = express();
 const PORT = 3003;
+const cors = require('cors');
 
 // mongoose connection
 mongoose.Promise = global.Promise;
@@ -15,6 +16,20 @@ mongoose.connect('mongodb://localhost/portalDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true // prevents errors when connecting to mongoDB
 });
+
+// middleware
+const whiteList = ['http://localhost:3000'];
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (whiteList.includes(origin)) {
+            callback(null, true);
+        }else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+};
+
+app.use(cors(corsOptions));
 
 // setup bodyParser
 app.use(bodyParser.urlencoded({extended: true})); // parse the request object to JSON

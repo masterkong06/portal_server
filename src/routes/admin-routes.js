@@ -22,7 +22,7 @@ const routes = (app) => {
         .delete(deletePatient); // delete a single patient record by id
 
 
-}
+};
 
 
 export default routes; //exports this function for use in server.js
