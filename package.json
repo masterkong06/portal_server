@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js --exec babel-node -e js"
+    "start": "nodemon server.js --exec babel-node -e js --ignore public/",
+    "dev": "webpack -wd"
   },
   "repository": {
     "type": "git",
@@ -18,14 +19,27 @@
   "homepage": "https://github.com/masterkong06/portal_server#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.6",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
+    "@babel/node": "7*",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^7.15.0",
+    "eslint-plugin-react": "^7.21.5",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0"
   }
 }
